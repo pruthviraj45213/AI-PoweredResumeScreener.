@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Resume Builder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  {% include 'sidebar.html' %}
+
+  <div class="main-content">
+    <header>
+      <h2>Settings</h2>
+      <div class="user-icon"><i class="fas fa-user-circle"></i></div>
+    </header>
+
+    <section class="settings-options">
+      <div class="setting-item">
+        <h4>Theme</h4>
+        <select>
+          <option>Light</option>
+          <option>Dark</option>
+        </select>
+      </div>
+
+      <div class="setting-item">
+        <h4>Notifications</h4>
+        <label><input type="checkbox" checked> Email Alerts</label>
+        <label><input type="checkbox"> Push Notifications</label>
+      </div>
+
+      <div class="setting-item">
+        <h4>Account</h4>
+        <button>Delete Account</button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

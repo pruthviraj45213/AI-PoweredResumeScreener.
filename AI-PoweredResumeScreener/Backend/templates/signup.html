@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Resume Builder</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background: #e6f0ff; position: relative; }
+
+    /* Background Image */
+    body::before {
+      content: "";
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url("https://www.myperfectresume.com/wp-content/uploads/2020/05/personalize-1.jpg?w=550") no-repeat center center/cover;
+      filter: blur(8px) brightness(0.7);
+      z-index: -1;
+    }
+
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: rgba(255,255,255,0.95); border-bottom:1px solid #ccc; backdrop-filter: blur(6px); z-index:1; }
+    .brand img { height:50px; width:auto; }
+    .nav-links { display:flex; gap:1rem; align-items:center; }
+    .nav-links a { padding:0.5rem 1rem; border-radius:6px; font-weight:bold; color:#0056b3; border:1px solid #0056b3; background:#fff; transition: all 0.3s ease; text-decoration: none; }
+    .nav-links a:hover { background:#0056b3; color:#fff; transform: scale(1.05); }
+    .get-started { background: linear-gradient(90deg, #0056b3, #1e90ff); color:white !important; border:none; }
+    .get-started:hover { transform: scale(1.1); box-shadow: 0 0 20px rgba(0,86,179,0.6); }
+
+    .auth-section { display:flex; justify-content:center; align-items:center; flex:1; padding:3rem 2rem; z-index:1; }
+    .auth-container { max-width:400px; width:100%; background: rgba(255,255,255,0.95); padding:2.5rem; border-radius:16px; box-shadow: 0 12px 30px rgba(0,0,128,0.2); animation: fadeInUp 0.8s ease-in-out; }
+
+    @keyframes fadeInUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity:1; } }
+
+    .auth-container h2 { text-align:center; margin-bottom:2rem; color:#0056b3; font-size:2rem; letter-spacing:1px; }
+
+    /* WTForms Fields */
+    .auth-container label { display:block; margin-bottom:0.3rem; font-weight:bold; color:#0056b3; }
+    .auth-container input, .auth-container button {
+      width:100%; padding:0.9rem; margin-bottom:1rem; border-radius:10px; border:1px solid #0056b3; font-size:1rem; transition: all 0.3s ease;
+      color: #0056b3; background: #f0f8ff;
+    }
+    .auth-container input:focus { border-color:#1e90ff; box-shadow: 0 0 10px rgba(30,144,255,0.3); outline:none; background:#e0f0ff; }
+
+    /* Gradient Button */
+    .auth-container button {
+      background: linear-gradient(90deg, #0056b3, #1e90ff);
+      color:white; font-weight:bold; border:none; cursor:pointer; box-shadow: 0 6px 15px rgba(0,86,179,0.4);
+    }
+    .auth-container button:hover {
+      background: linear-gradient(90deg, #1e90ff, #0056b3);
+      transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,86,179,0.6);
+    }
+
+    .auth-container p { text-align:center; margin-top:0.5rem; font-size:0.95rem; color:#555; }
+    .auth-container a { color:#0056b3; font-weight:bold; text-decoration: none; }
+
+    footer { text-align:center; padding:1.5rem; background: rgba(255,255,255,0.95); border-top:1px solid #ccc; color:#333; backdrop-filter: blur(6px); z-index:1; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Resume Builder Logo">
+    </div>
+    <div class="nav-links">
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('signup') }}">Sign Up</a>
+      <a href="{{ url_for('index') }}#get-started" class="get-started">Get Started</a>
+    </div>
+  </header>
+
+  <!-- SIGNUP FORM -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <h2>Create Your Account</h2>
+      <form method="POST" action="{{ url_for('signup') }}">
+        {{ form.hidden_tag() }}
+
+        <label for="full_name">Full Name</label>
+        {{ form.full_name(id="full_name", placeholder="Enter your full name") }}
+
+        <label for="email">Email Address</label>
+        {{ form.email(id="email", placeholder="Enter your email") }}
+
+        <label for="password">Password</label>
+        {{ form.password(id="password", placeholder="Enter your password") }}
+
+        <label for="confirm_password">Confirm Password</label>
+        {{ form.confirm_password(id="confirm_password", placeholder="Confirm your password") }}
+
+        {{ form.submit(class_='') }}
+      </form>
+      <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Resume Builder — Privacy · Terms</p>
+  </footer>
+
+</body>
+</html>

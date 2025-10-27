@@ -1,0 +1,94 @@
+<!-- templates/sidebar.html -->
+<div class="sidebar">
+  <div class="logo">
+    <h2>Resume Builder</h2>
+  </div>
+  <ul class="nav-links">
+    <li><a href="{{ url_for('dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
+    <li><a href="{{ url_for('my_resumes') }}"><i class="fas fa-file-alt"></i> My Resumes</a></li>
+    <li><a href="{{ url_for('create_resume') }}"><i class="fas fa-plus-circle"></i> Create Resume</a></li>
+    <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+    <li><a href="{{ url_for('settings') }}"><i class="fas fa-cog"></i> Settings</a></li>
+    <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+  </ul>
+</div>
+
+<style>
+  /* Sidebar */
+  .sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: #007bff;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+  }
+
+  .sidebar .logo {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .sidebar .logo h2 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .sidebar .nav-links {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+  }
+
+  .sidebar .nav-links li {
+    margin: 1rem 0;
+  }
+
+  .sidebar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  .sidebar .nav-links li a i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+  }
+
+  .sidebar .nav-links li a:hover {
+    background-color: #28a745;
+    transform: translateX(5px);
+  }
+
+  /* Responsive Sidebar */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px;
+      padding: 0.5rem;
+    }
+
+    .sidebar .logo h2 {
+      font-size: 18px;
+    }
+
+    .sidebar .nav-links li a {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<!-- Font Awesome Icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>

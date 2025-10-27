@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Resume Builder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  {% include 'sidebar.html' %}
+
+  <div class="main-content">
+    <header>
+      <h2>Profile</h2>
+      <div class="user-icon"><i class="fas fa-user-circle"></i></div>
+    </header>
+
+    <section class="profile-details">
+      <form>
+        <label>Username:</label>
+        <input type="text" value="JohnDoe">
+
+        <label>Email:</label>
+        <input type="email" value="john@example.com">
+
+        <label>Password:</label>
+        <input type="password" placeholder="Enter new password">
+
+        <button type="submit">Update Profile</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>

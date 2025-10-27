@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Resume Builder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Include Sidebar -->
+  {% include 'sidebar.html' %}
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h1>Welcome, {{ user.full_name }}</h1>
+      <div class="user-profile">
+        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User" />
+        <span>{{ user.full_name }}</span>
+      </div>
+    </header>
+
+    <!-- Dashboard Cards -->
+    <div class="cards">
+      <a href="{{ url_for('my_resumes') }}" class="card">
+        <i class="fas fa-file-alt"></i>
+        <h3>My Resumes</h3>
+        <p>View, edit, or download your saved resumes.</p>
+      </a>
+      <a href="{{ url_for('create_resume') }}" class="card">
+        <i class="fas fa-plus-circle"></i>
+        <h3>Create New</h3>
+        <p>Start building a new professional resume.</p>
+      </a>
+      <a href="{{ url_for('profile') }}" class="card">
+        <i class="fas fa-user"></i>
+        <h3>Profile</h3>
+        <p>Update your personal information and settings.</p>
+      </a>
+      <a href="{{ url_for('dashboard') }}" class="card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Statistics</h3>
+        <p>Track how many resumes you have created and downloaded.</p>
+      </a>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent">
+      <h2>Recent Activity</h2>
+      <ul>
+        <li>✔ You created a new resume (Modern Professional)</li>
+        <li>✔ You updated your profile details</li>
+        <li>✔ You downloaded your resume as PDF</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

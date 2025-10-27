@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Resumes - Resume Builder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  {% include 'sidebar.html' %}
+
+  <div class="main-content">
+    <header>
+      <h2>My Resumes</h2>
+      <div class="user-icon"><i class="fas fa-user-circle"></i></div>
+    </header>
+
+    <section class="resumes-list">
+      <div class="resume-card">
+        <h3>Modern Professional</h3>
+        <p>Last updated: 25 Sep 2025</p>
+        <button>Download PDF</button>
+        <button>Edit</button>
+      </div>
+      <div class="resume-card">
+        <h3>Creative Resume</h3>
+        <p>Last updated: 22 Sep 2025</p>
+        <button>Download PDF</button>
+        <button>Edit</button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

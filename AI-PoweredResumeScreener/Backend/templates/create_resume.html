@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Resume - Resume Builder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  {% include 'sidebar.html' %}
+
+  <div class="main-content">
+    <header>
+      <h2>Create Resume</h2>
+      <div class="user-icon"><i class="fas fa-user-circle"></i></div>
+    </header>
+
+    <section class="resume-form">
+      <form>
+        <label>Full Name:</label>
+        <input type="text" placeholder="Enter your full name">
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Phone:</label>
+        <input type="text" placeholder="Enter your phone number">
+
+        <label>Experience:</label>
+        <textarea placeholder="Describe your experience"></textarea>
+
+        <button type="submit">Save Resume</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>

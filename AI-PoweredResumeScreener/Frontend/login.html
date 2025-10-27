@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Resume Builder</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #222;
+      line-height: 1.6;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background Image with Blur */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://png.pngtree.com/thumb_back/fh260/background/20230613/pngtree-resume-and-resume-template-on-a-blue-table-image_2974658.jpg") 
+                  no-repeat center center/cover;
+      filter: blur(6px) brightness(0.8);
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid #ccc;
+      flex-wrap: wrap;
+      backdrop-filter: blur(6px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+      color: #2575fc;
+      border: 1px solid #2575fc;
+      background: #fff;
+    }
+
+    .nav-links a:hover {
+      background: #2575fc;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .get-started {
+      background: #2575fc;
+      color: white !important;
+      border: none;
+    }
+
+    .get-started:hover {
+      background: #28a745;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(40, 167, 69, 0.8);
+    }
+
+    /* FORM (Login/Signup) */
+    .auth-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 2rem;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .auth-container {
+      max-width: 400px;
+      width: 100%;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .auth-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #2575fc;
+    }
+
+    .auth-container input, 
+    .auth-container button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .auth-container input:focus {
+      border-color: #2575fc;
+      outline: none;
+      box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
+    }
+
+    .auth-container button {
+      background: #2575fc;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .auth-container button:hover {
+      background: #28a745;
+    }
+
+    .auth-container p {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .auth-container a {
+      color: #2575fc;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-top: 1px solid #ccc;
+      color: #333;
+      backdrop-filter: blur(6px);
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="data:image/png;base64,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" al alt="Resume Builder Logo" class="logo-img">
+    </div>
+    <div class="nav-links">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="index.html#get-started" class="get-started">Get Started</a>
+    </div>
+  </header>
+
+  <!-- LOGIN FORM -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <h2>Login</h2>
+      <form>
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Resume Builder — Privacy · Terms</p>
+  </footer>
+</body>
+</html>

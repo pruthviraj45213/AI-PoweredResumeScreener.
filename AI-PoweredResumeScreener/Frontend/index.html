@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Builder — Build a professional CV in minutes</title>
+
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <style>
+    * * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #87CEEB;
+  color: #222;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #ccc;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links a {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.nav-links a:hover {
+  background: #007bff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.get-started {
+  background: #007bff;
+  color: #fff !important;
+  border: none;
+}
+
+.get-started:hover {
+  background: #28a745;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(40, 167, 69, 0.8);
+}
+
+/* Hamburger */
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.hamburger:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  animation: slideDown 0.3s ease;
+}
+
+.mobile-menu a {
+  padding: 0.8rem;
+  color: #007bff;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.mobile-menu a:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO WITH SLIDESHOW */
+#hero {
+  position: relative;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px) brightness(0.6);
+  z-index: -2;
+  animation: slideshow 8s infinite linear;
+}
+
+@keyframes slideshow {
+  0% { background-image: url("https://media.istockphoto.com/id/1349094945/photo/human-using-a-computer-laptop-for-searching-for-job-and-fill-out-personal-data-on-job-website.jpg?s=612x612&w=0&k=20&c=nVCY302pin29eP1rN0eBGstQN3WF4YQTWvZ4TvAs21g="); }
+  25% { background-image: url("https://cdn.pixabay.com/photo/2021/11/14/18/36/telework-6795505_1280.jpg"); }
+  50% { background-image: url("https://media.istockphoto.com/id/1468757785/photo/human-resources-and-management-concept-employee-must-complete-the-online-survey-form-marked.jpg?s=612x612&w=0&k=20&c=pw8CEktSVEQUF1NXxNRN2vplQ2ZKvRmuSGJqyktRd54="); }
+  75% { background-image: url("https://static.vecteezy.com/system/resources/thumbnails/008/563/449/small/businessman-typing-on-a-computer-keyboard-customer-service-satisfaction-survey-concept-business-people-choose-the-highest-satisfaction-rating-and-give-5-stars-satisfaction-rating-rating-photo.jpg"); }
+  100% { background-image: url("https://media.istockphoto.com/id/1349094945/photo/human-using-a-computer-laptop-for-searching-for-job-and-fill-out-personal-data-on-job-website.jpg?s=612x612&w=0&k=20&c=nVCY302pin29eP1rN0eBGstQN3WF4YQTWvZ4TvAs21g="); }
+}
+
+#hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+#hero a {
+  background: #007bff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+}
+
+#hero a:hover {
+  background: #28a745;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(40, 167, 69, 0.8);
+}
+
+section {
+  padding: 3rem 2rem;
+}
+
+#features, #templates {
+  background: #e0f7fa;
+  border-top: 1px solid #bbb;
+}
+
+#features h2, #templates h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.feature {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.feature:hover {
+  background: #f1f1f1;
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.feature i {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.feature h3 {
+  margin-bottom: 0.5rem;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+/* TEMPLATES */
+.templates-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  justify-items: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.template-card {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.template-card img {
+  width: 100%;
+  height: 500px;       /* smaller uniform size */
+  object-fit: square;   /* keeps proportional crop */
+  border-radius: 6px;
+}
+
+.template-card h3 {
+  color: #007bff;
+  margin: 0.8rem 0 0.4rem;
+}
+
+.template-card p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.template-card:hover h3 {
+  color: #28a745;
+}
+
+.template-card button {
+  background: #007bff;
+  color: #fff;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.template-card button:hover {
+  background: #28a745;
+  transform: scale(1.05);
+}
+
+#get-started {
+  background: #e0f7fa;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-top: 1px solid #ccc;
+  color: #555;
+}
+
+.social-icons a {
+  margin: 0 0.5rem;
+  color: #555;
+  font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .templates-container {
+    grid-template-columns: 1fr;
+  }
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand logo-container">
+      <img src="data:image/png;base64,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" al alt="Resume Builder Logo" class="logo-img">
+    </div>
+    <nav class="nav-links">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="#get-started" class="get-started">Get Started</a>
+      <!-- Hamburger beside Get Started -->
+      <i class="fas fa-bars hamburger"></i>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Features</a>
+    <a href="#templates">Choose a Template</a>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="#get-started">Get Started</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <h2>Build a professional resume in minutes</h2>
+    <p>Choose a recruiter-approved template, fill your details, and download a printable PDF.</p>
+    <a href="#templates">Create My Resume</a>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <h2 style="text-align:left;">Features</h2>
+    <div class="features-container">
+      <div class="feature"><i class="fas fa-file-alt"></i><h3>Templates</h3><p>Modern, ATS-friendly designs for every role.</p></div>
+      <div class="feature"><i class="fas fa-envelope-open-text"></i><h3>Cover Letters</h3><p>One-click cover letter generation.</p></div>
+      <div class="feature"><i class="fas fa-file-export"></i><h3>Export & Track</h3><p>PDF downloads & public resume link.</p></div>
+      <div class="feature"><i class="fas fa-eye"></i><h3>Live Preview</h3><p>See changes in real time.</p></div>
+    </div>
+  </section>
+
+  <!-- TEMPLATES -->
+  <section id="templates">
+    <h2 style="text-align:left;">Choose a Template</h2>
+    <div class="templates-container">
+      <div class="template-card">
+        <img src="https://i.pinimg.com/736x/01/6f/44/016f442a7751ebe6978c1573547b509b.jpg" alt="Modern Professional Resume">
+        <h3>Modern Professional</h3>
+        <p>Best for experienced professionals</p>
+        <button onclick="window.location.href='signup.html'">Use This Template</button>
+
+      </div>
+      <div class="template-card">
+        <img src="https://cdn-blog.novoresume.com/articles/creative-resume-templates/creative-resume-example-1.webp" alt="Creative Resume">
+        <h3>Creative</h3>
+        <p>Color accents for designers</p>
+        <button onclick="window.location.href='signup.html'">Use This Template</button>
+      </div>
+      <div class="template-card">
+        <img src="https://img.freepik.com/free-vector/athlete-resume-template-design_742173-19558.jpg" alt="Elegant Resume">
+        <h3>Elegant</h3>
+        <p>Perfect for corporate jobs</p>
+        <button onclick="window.location.href='signup.html'">Use This Template</button>
+      </div>
+      <div class="template-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9aWq-a0YKY3MXMeB7e-1vusaKcXIO8aZFbA&s" alt="Compact Resume">
+        <h3>Compact</h3>
+        <p>One-page, concise format</p>
+        <button onclick="window.location.href='signup.html'">Use This Template</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Resume Builder — 
+      <a href="privacy.html">Privacy</a> · 
+      <a href="terms.html">Terms</a>
+    </p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <!-- JS for toggle -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.style.display =
+        mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+
+</body>
+</html>
